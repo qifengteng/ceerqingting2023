@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "~~~~~侧耳倾听~~~~~"
+npm run lint:lint-staged
