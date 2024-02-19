@@ -15,3 +15,41 @@ declare interface ViteEnv {
     VITE_API_URL: string;
     VITE_PROXY: [string, string][];
 }
+
+interface ImportMetaEnv extends ViteEnv {
+    __: unknown;
+}
+
+declare namespace Menu {
+    interface MenuOptions {
+        path: string;
+        name: string;
+        component?: string | (() => Promise<unknown>);
+        redirect?: string;
+        meta: MetaProps;
+        children?: MenuOptions[];
+    }
+    interface MetaProps {
+        title: string;
+        icon: string;
+        activeMenu?: string;
+        isLink?: string;
+        isAffix: boolean;
+        isFull: boolean;
+        isHide: boolean;
+        isKeepAlive: boolean;
+    }
+}
+
+/* Vite */
+declare type Recordable<T = any> = Record<string, T>;
+/** __APP_INFO__ */
+declare const __APP_INFO__: {
+    pkg: {
+        name: string;
+        version: string;
+        dependencies: Recordable<string>;
+        devDependencies: Recordable<string>;
+    };
+    lastBuildTime: string;
+};

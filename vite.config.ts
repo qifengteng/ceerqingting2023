@@ -15,7 +15,6 @@ const __APP_INFO__ = {
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     const root = process.cwd();
     const env = loadEnv(mode, root);
-    console.log("~~~~env~~~~", env);
     const viteEnv = wrapperEnv(env);
 
     return {
